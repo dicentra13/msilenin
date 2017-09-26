@@ -14,7 +14,7 @@ int main() {
 		fin >> a[i];
 	}
 	int pos;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++) {        //Comment
     	pos = i;
     	for(int j = i + 1; j < N; j++) {
     		if(a[pos] > a[j]) {
