@@ -16,7 +16,7 @@ int main() {
 	int pos;
     for (int i = 0; i < N; i++) {        //Comment
     	pos = i;
-    	for(int j = i + 1; j < N; j++) {
+    	for(int j = i + 1; j < N; j++) { //Comment 2
     		if(a[pos] > a[j]) {
     			pos = j;
 			}
