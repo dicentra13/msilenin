@@ -74,7 +74,7 @@ int main() {
 	}
 	choise_sort(a, n);
 	bubble_sort(a, n);
-	sort(a, n);
+	insertion_sort(a, n);
 	fout.close();
 	fin.close();
 	system("pause");
