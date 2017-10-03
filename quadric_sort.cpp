@@ -3,7 +3,17 @@
 #include <fstream>
 #define MAX_K 100
 using namespace std;
-int choise_sort(int a[MAX_K], int n) {
+void print_array(int* a, size_t n, ostream& out) {
+	for (size_t i = 0; i < n; ++i) {
+			out << a[i] << " ";
+	}
+	out << endl;
+}
+
+
+
+
+void choise_sort(int* a, int n, ostream& out) {
 	int pos;
     for (int i = 0; i < n; i++) {
     	pos = i;
@@ -14,17 +24,13 @@ int choise_sort(int a[MAX_K], int n) {
 		}
 		swap(a[pos], a[i]);
 	}
-	for (int i = 0; i < n; i++) {
-		cout << a[i] << " ";
-	}
-	cout << endl;
-	return 0;
+	print_array(a, n, out);
 }
 
 
 
 
-int bubble_sort(int a[MAX_K], int n) {
+void bubble_sort(int* a, int n, ostream& out) {
 	for (int i = 0; i < n; i++) {
     	for (int j = i - 1; j >= 0; j--) {
       		if (a[j] > a[j + 1]) {
@@ -32,31 +38,22 @@ int bubble_sort(int a[MAX_K], int n) {
       		}
     	}
     }
-	for(int i = 0; i < n; i++) {
-		 cout << a[i] << " ";
-	}
-	cout << endl;
-	return 0;
-
+    print_array(a, n, out);
 }
 
 
 
 
-int insertion_sort(int a[MAX_K], int n) {
+void insertion_sort(int* a, int n, ostream& out) {
 	int j;
     for (int i = 0; i < n; i++) {
     	j = i;
-    	while (j > 0 && a[j - 1] < a[j]) {
+    	while (j > 0 && a[j - 1] > a[j]) {
     		swap(a[j], a[j - 1]);
     		j -= 1;
 		}
 	}
-	for(int i = n - 1; i >= 0; i--) {
-		cout << a[i] << " ";
-	}
-	cout << endl;
-	return 0;
+	print_array(a, n, out);
 }
 
 
@@ -72,9 +69,9 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		fin >> a[i];
 	}
-	choise_sort(a, n);
-	bubble_sort(a, n);
-	insertion_sort(a, n);
+	choise_sort(a, n, fout);
+	bubble_sort(a, n, fout);
+	insertion_sort(a, n, fout);
 	fout.close();
 	fin.close();
 	system("pause");
