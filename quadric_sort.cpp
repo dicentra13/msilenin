@@ -2,7 +2,12 @@
 #include <algorithm>
 #include <fstream>
 #define MAX_K 100
+
 using namespace std;
+
+
+
+
 void print_array(int* a, size_t n, ostream& out) {
 	for (size_t i = 0; i < n; ++i) {
 			out << a[i] << " ";
@@ -13,7 +18,7 @@ void print_array(int* a, size_t n, ostream& out) {
 
 
 
-void choise_sort(int* a, int n, ostream& out) {
+void choise_sort(int* a, size_t n, ostream& out) {
 	int pos;
     for (int i = 0; i < n; i++) {
     	pos = i;
@@ -30,7 +35,7 @@ void choise_sort(int* a, int n, ostream& out) {
 
 
 
-void bubble_sort(int* a, int n, ostream& out) {
+void bubble_sort(int* a, size_t n, ostream& out) {
 	for (int i = 0; i < n; i++) {
     	for (int j = i - 1; j >= 0; j--) {
       		if (a[j] > a[j + 1]) {
@@ -44,13 +49,13 @@ void bubble_sort(int* a, int n, ostream& out) {
 
 
 
-void insertion_sort(int* a, int n, ostream& out) {
+void insertion_sort(int* a, size_t n, ostream& out) {
 	int j;
     for (int i = 0; i < n; i++) {
     	j = i;
     	while (j > 0 && a[j - 1] > a[j]) {
     		swap(a[j], a[j - 1]);
-    		j -= 1;
+    		--j;
 		}
 	}
 	print_array(a, n, out);
@@ -74,6 +79,5 @@ int main() {
 	insertion_sort(a, n, fout);
 	fout.close();
 	fin.close();
-	system("pause");
 	return 0;
 }
