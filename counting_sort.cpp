@@ -73,6 +73,5 @@ int main() {
 	counting_sort(a, n, fout);
 	fout.close();
 	fin.close();
-	system("pause");
 	return 0;
 }
