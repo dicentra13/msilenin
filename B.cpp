@@ -6,11 +6,9 @@ using namespace std;
 int main () {
 	size_t n;
 	cin >> n;
-	vector<size_t> h;
+	vector<size_t> h(n, 0);
 	for (size_t i = 0; i < n; i++) {
-		size_t t;
-		cin >> t;
-		h.push_back(t);
+		cin >> h[i];
 	}
 	size_t max = h[0], a = 0, b = 0;  // max - максимальный столбец, a, b - отрезок от max до max ( например, у нас 11 стобцов, мы нашли максимум, который находиться на 1 позиции, но есть еще такого же размера столбец на 10 позиции => a = 1, b = 10 ). В нашем примере a = b т.к. столбец из 9 блоков только один.
 	for (size_t i = 0; i < n; i++) {
@@ -32,8 +30,8 @@ int main () {
 	}
 	for (size_t i = a; i < b; i++) {
 		res += max - h[i];
-		max2 = 0;
 	}
+	max2 = 0;
 	for (size_t i = n - 1; i > b; i--) {
 		if (h[i] > max2) {
 			max2 = h[i];
